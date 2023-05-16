@@ -29,7 +29,7 @@
     <h2>Welcome, {name}</h2>
     <script>
     const name = decodeURIComponent(window.location.search.split('?')[1]);
-    $('h3').textContent('Welcome, ' + name);
+    $('h3').textContent = 'Welcome, ' + name;
     </script>
 </body>
 </html>
