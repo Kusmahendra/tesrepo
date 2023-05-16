@@ -31,12 +31,9 @@
 
     <script>
 
-    function Welcome(name) {
-    return 'Welcome, ' + name;
-    }
-
     const name = decodeURIComponent(window.location.search.split('?')[1]).replace('+', ' ');
-    $('h1#guest').text('Welcome, ' + Welcome(name));
+    $('h1#guest').text('Welcome, ' + name);
+    
     </script>
 </body>
 </html>
