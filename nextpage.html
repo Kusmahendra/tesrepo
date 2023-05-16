@@ -30,8 +30,13 @@
     <h1>Welcome, {name}</h1>
 
     <script>
+
+    function Welcome(name) {
+    return 'Welcome, ' + name;
+    }
+
     const name = decodeURIComponent(window.location.search.split('?')[1]).replace('+', ' ');
-    $('h1').text('Welcome, ' + name);
+    $('h1').text('Welcome, ' + Welcome(name));
     </script>
 </body>
 </html>
