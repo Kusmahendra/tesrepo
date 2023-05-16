@@ -12,10 +12,14 @@
             return window.location.href
         }
         
+        function getCurrentHost () {
+            return window.location.host
+        }
         // Example
         const url = getCurrentURL()
-        
+        const host = getCurrentHost()
         console.log(url)
+        console.log(host)
         
     </script>
 </body>
