@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>This is RSVP Page</h1>
-    <form action="/rsvp" method="post">
+   <!--<form action="/rsvp" method="post">
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" required>
         <br>
@@ -21,6 +21,20 @@
         <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         <br>
         <input type="submit" value="Submit">
+    </form>-->
+    <form action="https://docs.google.com/spreadsheets/d/1PzPl_wAkSULlrok_75L8r1PuRbfYBqpIdOU5M5rjxh0/edit#gid=0" method="post">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <input type="submit" value="Submit">
     </form>
+    <script>
+        function onFormSubmit(e) {
+            var formData = e.target.elements;
+            var name = formData["name"].value;
+            var email = formData["email"].value;
+            var sheet = SpreadsheetApp.openById("1PzPl_wAkSULlrok_75L8r1PuRbfYBqpIdOU5M5rjxh0/edit#gid=0");
+            var row = sheet.appendRow([name, email]);
+        }
+    </script>
 </body>
 </html>
