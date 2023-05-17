@@ -54,9 +54,9 @@
       event.preventDefault();
     
       // Validate the form data.
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var rsvp = document.getElementById("rsvp").value;
+      var name = document.getElementsByName("name").value;
+      var email = document.getElementsByName("email").value;
+      var rsvp = document.getElementsByName("rsvp").value;
     
       if (name == "" || email == "" || rsvp == "") {
         alert("Please enter all required fields.");
