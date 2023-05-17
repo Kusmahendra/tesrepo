@@ -22,7 +22,7 @@
         <br>
         <input type="submit" value="Submit">
     </form>-->
-    <form action="https://docs.google.com/spreadsheets/d/1PzPl_wAkSULlrok_75L8r1PuRbfYBqpIdOU5M5rjxh0/edit#gid=0" method="post">
+    <!-- <form action="https://docs.google.com/spreadsheets/d/1PzPl_wAkSULlrok_75L8r1PuRbfYBqpIdOU5M5rjxh0/edit#gid=0" method="post">
         <input type="text" name="name" placeholder="Your Name">
         <input type="email" name="email" placeholder="Your Email">
         <input type="submit" value="Submit">
@@ -35,6 +35,52 @@
             var sheet = SpreadsheetApp.openById("1PzPl_wAkSULlrok_75L8r1PuRbfYBqpIdOU5M5rjxh0/edit#gid=0");
             var row = sheet.appendRow([name, email]);
         }
+    </script> -->
+    <h1>RSVP</h1>
+    <form id="rsvpForm">
+    <input type="text" name="name" placeholder="Your name">
+    <input type="email" name="email" placeholder="Your email">
+    <input type="radio" name="rsvp" value="yes" checked> Yes
+    <input type="radio" name="rsvp" value="no"> No
+    <input type="radio" name="rsvp" value="maybe"> Maybe
+    <input type="submit" value="RSVP">
+    </form>
+    <script>
+    // Get the form element.
+    var rsvpForm = document.getElementById("rsvpForm");
+    
+    // Add an event listener to the submit button.
+    rsvpForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+    
+      // Validate the form data.
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var rsvp = document.getElementById("rsvp").value;
+    
+      if (name == "" || email == "" || rsvp == "") {
+        alert("Please enter all required fields.");
+        return;
+      }
+    
+      // Save the form data to a Google Sheet.
+      var spreadsheet = SpreadsheetApp.openById("YOUR_GOOGLE_SHEET_ID");
+      var sheet = spreadsheet.getActiveSheet();
+      sheet.appendRow([name, email, rsvp]);
+    
+      // Send an email to the user confirming their RSVP.
+      var message = "Thank you for RSVPing to our event. We look forward to seeing you there!";
+      var subject = "RSVP Confirmation";
+      var mailOptions = {
+        to: email,
+        subject: subject,
+        text: message
+      };
+      window.sendMail(mailOptions);
+    
+      // Redirect the user to the thank you page.
+      window.location.href = "thank-you.html";
+    });
     </script>
 </body>
 </html>
